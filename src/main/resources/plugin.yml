@@ -2,3 +2,8 @@ name: WarGearManager
 version: '${project.version}'
 main: dev.imkx.wargearmanager.WarGearManager
 authors: [ IT0NA31, kx ]
+commands:
+  wargear:
+    aliases: wg
+    description: Wargear commands
+    usage: /wg
