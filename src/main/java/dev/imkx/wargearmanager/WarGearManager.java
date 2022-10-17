@@ -25,13 +25,13 @@ public final class WarGearManager extends JavaPlugin {
 		basicWarGearArena = new BuildObject();
 		// red box
 		basicWarGearArena.addPart(new EdgeBoxPart(
-				new Vector(-23, 0, -54), new Vector(45, 32, 30), Material.WOOL));
+				new Vector(-22, 0, -54), new Vector(45, 32, 30), Material.WOOL));
 		// blue box
 		basicWarGearArena.addPart(new EdgeBoxPart(
-				new Vector(-23, 0, 26), new Vector(45, 32, 30), Material.WOOL));
+				new Vector(-22, 0, 26), new Vector(45, 32, 30), Material.WOOL));
 		// floor plane
 		basicWarGearArena.addPart(new FloorPlanePart(
-				new Vector(-23, -1, -54), new Vector(45, 1, 110), Material.ENDER_STONE));
+				new Vector(-22, -1, -54), new Vector(45, 1, 110), Material.ENDER_STONE));
 		// middle blocks
 		basicWarGearArena.addPart(new FloorPlanePart(
 				new Vector(0, -1, 0), new Vector(1, 1, 2), Material.GLOWSTONE));
