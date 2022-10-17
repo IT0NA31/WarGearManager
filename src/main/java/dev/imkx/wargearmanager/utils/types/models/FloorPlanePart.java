@@ -32,8 +32,8 @@ public class FloorPlanePart implements Part {
 		Location from = location.clone().add(offset_start);
 		Location to = location.clone().add(offset_end);
 
-		for(int x = from.getBlockX(); x <= to.getBlockX(); x++) {
-			for(int z = from.getBlockZ(); z <= to.getBlockZ(); z++) {
+		for(int x = from.getBlockX(); x <= to.getBlockX() - 1; x++) {
+			for(int z = from.getBlockZ(); z <= to.getBlockZ() - 1; z++) {
 				from.getWorld().getBlockAt(x, from.getBlockY(), z).setType(material);
 			}
 		}

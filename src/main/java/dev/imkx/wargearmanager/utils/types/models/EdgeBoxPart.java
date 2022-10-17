@@ -34,22 +34,22 @@ public class EdgeBoxPart implements Part {
 		Location corner2 = location.clone().add(offset_end);
 
 		World world = corner1.getWorld();
-		double minX = Math.min(corner1.getX(), corner2.getX());
-		double minY = Math.min(corner1.getY(), corner2.getY());
-		double minZ = Math.min(corner1.getZ(), corner2.getZ());
-		double maxX = Math.max(corner1.getX(), corner2.getX());
-		double maxY = Math.max(corner1.getY(), corner2.getY());
-		double maxZ = Math.max(corner1.getZ(), corner2.getZ());
+		int minX = Math.min(corner1.getBlockX(), corner2.getBlockX());
+		int minY = Math.min(corner1.getBlockY(), corner2.getBlockY());
+		int minZ = Math.min(corner1.getBlockZ(), corner2.getBlockZ());
+		int maxX = Math.max(corner1.getBlockX(), corner2.getBlockX()) - 1;
+		int maxY = Math.max(corner1.getBlockY(), corner2.getBlockY()) - 1;
+		int maxZ = Math.max(corner1.getBlockZ(), corner2.getBlockZ()) - 1;
 
-		for (double x = minX; x <= maxX; x++) {
-			for (double y = minY; y <= maxY; y++) {
-				for (double z = minZ; z <= maxZ; z++) {
+		for (int x = minX; x <= maxX; x++) {
+			for (int y = minY; y <= maxY; y++) {
+				for (int z = minZ; z <= maxZ; z++) {
 					int components = 0;
 					if (x == minX || x == maxX) components++;
 					if (y == minY || y == maxY) components++;
 					if (z == minZ || z == maxZ) components++;
 					if (components >= 2) {
-						world.getBlockAt((int) x, (int) y, (int) z).setType(material);
+						world.getBlockAt(x, y, z).setType(material);
 					}
 				}
 			}
