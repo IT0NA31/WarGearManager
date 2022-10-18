@@ -1,18 +1,19 @@
 package dev.imkx.wargearmanager.utils.types.models;
 
 import dev.imkx.wargearmanager.utils.types.Part;
+import dev.imkx.wargearmanager.utils.types.SerializableVector;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
 
 public class FloorPlanePart implements Part {
-	Vector offset_start;
-	Vector offset_end;
+	SerializableVector offset_start;
+	SerializableVector offset_end;
 	Material material;
 
 	public FloorPlanePart(Vector offsetStart, Vector size, Material material) {
-		this.offset_start = offsetStart;
-		this.offset_end = offsetStart.clone().add(size);
+		this.offset_start = new SerializableVector(offsetStart);
+		this.offset_end = new SerializableVector(offsetStart.clone().add(size));
 		this.material = material;
 	}
 

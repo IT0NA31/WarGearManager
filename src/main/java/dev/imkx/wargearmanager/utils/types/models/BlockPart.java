@@ -1,16 +1,17 @@
 package dev.imkx.wargearmanager.utils.types.models;
 
 import dev.imkx.wargearmanager.utils.types.Part;
+import dev.imkx.wargearmanager.utils.types.SerializableVector;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
 
 public class BlockPart implements Part {
-	private final Vector offset_start;
+	private final SerializableVector offset_start;
 	private final Material material;
 
 	public BlockPart(Vector offsetStart, Material material) {
-		this.offset_start = offsetStart;
+		this.offset_start = new SerializableVector(offsetStart);
 		this.material = material;
 	}
 
