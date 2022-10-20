@@ -21,6 +21,11 @@ public final class WarGearManager extends JavaPlugin {
 		basicWarGearArena.build(player.getLocation());
 	}
 
+	private static WarGearManager instance;
+	public static WarGearManager getInstance() {
+		return instance;
+	}
+
 	public void setupBasicArena() {
 		basicWarGearArena = new BuildObject();
 		// red box
@@ -43,6 +48,7 @@ public final class WarGearManager extends JavaPlugin {
 
 	@Override
 	public void onLoad() {
+		instance = this;
 		setupBasicArena();
 	}
 
