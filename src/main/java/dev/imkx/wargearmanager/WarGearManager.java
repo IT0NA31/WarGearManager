@@ -50,7 +50,7 @@ public final class WarGearManager extends JavaPlugin {
 	public void onEnable() {
 		// Plugin startup logic
 		getCommand("wargear").setExecutor(new WarGearCommand());
-
+		Bukkit.getPluginManager().registerEvents(new PingListener(), this);
 	}
 
 	@Override
