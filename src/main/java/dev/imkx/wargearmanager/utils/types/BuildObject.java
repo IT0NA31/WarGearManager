@@ -5,11 +5,16 @@ import org.bukkit.util.Vector;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BuildObject implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private final ArrayList<Part> parts = new ArrayList<>();
+
+	public List<Part> getParts() {
+		return parts;
+	}
 
 	public void addPart(Part part) {
 		parts.add(part);
