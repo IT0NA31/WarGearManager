@@ -15,13 +15,20 @@ public class ParticleUtil {
         double length = (lengthY + lengthZ + lengthX);
         for(int i = 0; i <= length; i++) {
             Location l = from.clone().add(lengthX/length, lengthY/length, lengthZ/length);
-            l.getWorld().spawnParticle(Particle.REDSTONE, l, 1);
+            l.getWorld().spawnParticle(Particle.REDSTONE, l, 0, Float.MIN_VALUE, 1, Float.MIN_VALUE, 1);
         }
 
     }
+
     public static void spawnBox(Location from, Location to) {
         for(Location l : GeometryUtil.getHollowCube(from, to)) {
-            l.getWorld().spawnParticle(Particle.REDSTONE, l, 1);
+            l.getWorld().spawnParticle(Particle.REDSTONE, l, 0, Float.MIN_VALUE, 1, Float.MIN_VALUE, 1);
+        }
+    }
+
+    public static void spawnBox(Player p, Location from, Location to) {
+        for(Location l : GeometryUtil.getHollowCube(from, to)) {
+            p.spawnParticle(Particle.REDSTONE, l, 0, Float.MIN_VALUE, 1, Float.MIN_VALUE, 1);
         }
     }
 
@@ -39,10 +46,10 @@ public class ParticleUtil {
                 cancel();
             Location loc = p.getLocation().getBlock().getLocation();
             // main box
-            ParticleUtil.spawnBox(loc.clone().add(buildObject.getOffsetStart()),
+            ParticleUtil.spawnBox(p, loc.clone().add(buildObject.getOffsetStart()),
                     loc.clone().add(buildObject.getOffsetEnd()));
             for (Part part : buildObject.getParts()) {
-                ParticleUtil.spawnBox(loc.clone().add(part.getOffsetStart()),
+                ParticleUtil.spawnBox(p, loc.clone().add(part.getOffsetStart()),
                         loc.clone().add(part.getOffsetEnd()));
             }
         }
