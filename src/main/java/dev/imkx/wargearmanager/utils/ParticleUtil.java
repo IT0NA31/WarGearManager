@@ -35,17 +35,28 @@ public class ParticleUtil {
     public static class BuildObjectOutliner extends BukkitRunnable {
         Player p;
         BuildObject buildObject;
+        Location freezePos;
 
         public BuildObjectOutliner(Player p, BuildObject buildObject) {
             this.p = p;
             this.buildObject = buildObject;
         }
 
+        public BuildObjectOutliner(Player p, BuildObject buildObject, Location freezeLoc) {
+            this.p = p;
+            this.buildObject = buildObject;
+            freezePos = freezeLoc.getBlock().getLocation();
+        }
+
         @Override
         public void run() {
             if (!p.isOnline())
                 cancel();
-            Location loc = p.getLocation().getBlock().getLocation();
+            Location loc;
+            if (freezePos == null)
+                loc = p.getLocation().getBlock().getLocation();
+            else
+                loc = freezePos;
             // main box
             ParticleUtil.spawnBox(p, loc.clone().add(buildObject.getOffsetStart()),
                     loc.clone().add(buildObject.getOffsetEnd()));
