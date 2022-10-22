@@ -6,7 +6,6 @@ import dev.imkx.wargearmanager.utils.types.models.BlockPart;
 import dev.imkx.wargearmanager.utils.types.models.EdgeBoxPart;
 import dev.imkx.wargearmanager.utils.types.models.FloorPlanePart;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
@@ -15,10 +14,6 @@ public final class WarGearManager extends JavaPlugin {
 
 	public static BuildObject getBasicWarGearArena() {
 		return basicWarGearArena;
-	}
-
-	public static void spawnWarGearArena(Player player) {
-		basicWarGearArena.build(player.getLocation());
 	}
 
 	private static WarGearManager instance;
