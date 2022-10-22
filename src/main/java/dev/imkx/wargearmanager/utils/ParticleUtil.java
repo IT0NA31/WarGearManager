@@ -35,6 +35,7 @@ public class ParticleUtil {
     public static class BuildObjectOutliner extends BukkitRunnable {
         Player p;
         BuildObject buildObject;
+
         public BuildObjectOutliner(Player p, BuildObject buildObject) {
             this.p = p;
             this.buildObject = buildObject;
